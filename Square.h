@@ -4,7 +4,9 @@
 
 #ifndef SQUARE_H
 #define SQUARE_H
+#include <string>
 
+#include "Player.h"
 
 
 class Square {

@@ -4,7 +4,7 @@
 
 #ifndef UTILITY_H
 #define UTILITY_H
-
+#include "Player.h"
 
 
 class Utility : public Property {

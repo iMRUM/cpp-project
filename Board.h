@@ -4,6 +4,10 @@
 
 #ifndef BOARD_H
 #define BOARD_H
+#include <memory>
+#include <Square.h>
+#include <vector>
+
 class Board {
 public:
     Board();

@@ -5,6 +5,8 @@
 #ifndef STREET_H
 #define STREET_H
 #include <string>
+
+#include "Player.h"
 #include "Property.h"
 
 

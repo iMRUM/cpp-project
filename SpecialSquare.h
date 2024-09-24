@@ -4,7 +4,10 @@
 
 #ifndef SPECIALSQUARE_H
 #define SPECIALSQUARE_H
+#include "Square.h"
+#include <string>
 
+#include "Player.h"
 
 
 class SpecialSquare : public Square {

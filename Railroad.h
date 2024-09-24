@@ -4,7 +4,7 @@
 
 #ifndef RAILROAD_H
 #define RAILROAD_H
-
+#include "Player.h"
 
 
 class Railroad : public Property {
