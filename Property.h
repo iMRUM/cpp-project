@@ -5,7 +5,6 @@
 #ifndef PROPERTY_H
 #define PROPERTY_H
 #include "Square.h"
-
 #include "Player.h"
 
 
@@ -22,10 +21,11 @@ public:
     int getPrice() const;
     int getRent() const;
 private:
-    int price;
-    int rent;
-    Player* owner;
+    int _price;
+    int _rent;
+    Player* _owner;
 };
+
 
 
 

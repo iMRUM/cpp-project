@@ -11,14 +11,14 @@
 
 class Square {
 public:
-    Square(const std::string& name);
+    explicit Square(const std::string& name);
     virtual ~Square() = default;
 
     virtual void landOn(Player& player) = 0;
 
     const std::string& getName() const;
 private:
-    std::string name;
+    std::string _name;
 };
 
 
