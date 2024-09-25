@@ -29,4 +29,6 @@ add_executable(cpp
         SquareFactory.h
         Constants.h
         Color.cpp
-        Color.h)
+        Color.h
+        Tradeable.cpp
+        Tradeable.hpp)

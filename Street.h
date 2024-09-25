@@ -6,13 +6,17 @@
 #define STREET_H
 #include <string>
 
+#include "Tradeable.hpp"
 #include "Player.h"
 #include "Property.h"
 
 // Street IS A Square and HAS Properties
-class Street : public Property {
+class Street : public Square, public Tradeable{
 public:
-    Street(const std::string& name, int price, int rent, int houseCost);
+    Street(const std::string &name, int price,int house_cost, int rent, const Player &owner, const Color &type)
+       : Square(name), Tradeable(price, rent, owner, type), houseCost(house_cost), numHouses(0), hotel(false) {}
+
+
     void buildHouse();
     void buildHotel();
 

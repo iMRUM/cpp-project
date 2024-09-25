@@ -6,8 +6,14 @@
 #define PROPERTY_H
 #include "Square.h"
 #include "Player.h"
+//Hotel costs as 4 houses + 100NIS
 
 
+
+
+
+
+/*TOO WRONG, PROPERTY IS "HOUSE" or "HOTEL"*/
 class Property : public Square {
 public:
     Property(const std::string& name, int price, int rent);
