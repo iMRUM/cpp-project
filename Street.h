@@ -9,7 +9,7 @@
 #include "Player.h"
 #include "Property.h"
 
-
+// Street IS A Square and HAS Properties
 class Street : public Property {
 public:
     Street(const std::string& name, int price, int rent, int houseCost);
