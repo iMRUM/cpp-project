@@ -5,38 +5,30 @@
 #ifndef TRADEABLE_HPP
 #define TRADEABLE_HPP
 #include "Player.h"
-#include "Color.h"
+#include "Set.h"
 
 class Tradeable {
     int _price;
     int _rent;
-    Player _owner;
-    Color _type;
+    Player* _owner;
+    Set _set;
 public:
-    explicit Tradeable(const std::string& name);
     virtual ~Tradeable() = default;
     virtual void landOn(Player& player) = 0;
 
-    Tradeable(const int price, const int rent, const Player &owner, const Color &type)
+    Tradeable(const int price, const int rent, const Set &type)
         : _price(price),
-          _rent(rent),
-          _owner(owner),
-          _type(type) {
+          _rent(rent), _owner(nullptr),
+          _set(type) {
     }
 
     Tradeable(const Tradeable &other)
         : _price(other._price),
           _rent(other._rent),
           _owner(other._owner),
-          _type(other._type) {
+          _set(other._set) {
     }
 
-    Tradeable(Tradeable &&other) noexcept
-        : _price(other._price),
-          _rent(other._rent),
-          _owner(std::move(other._owner)),
-          _type(std::move(other._type)) {
-    }
 
     Tradeable & operator=(const Tradeable &other) {
         if (this == &other)
@@ -44,7 +36,7 @@ public:
         _price = other._price;
         _rent = other._rent;
         _owner = other._owner;
-        _type = other._type;
+        _set = other._set;
         return *this;
     }
 
@@ -54,7 +46,7 @@ public:
         _price = other._price;
         _rent = other._rent;
         _owner = std::move(other._owner);
-        _type = std::move(other._type);
+        _set = std::move(other._set);
         return *this;
     }
 
@@ -71,7 +63,7 @@ public:
             return true;
         if (rhs._owner < lhs._owner)
             return false;
-        return lhs._type < rhs._type;
+        return lhs._set < rhs._set;
     }
 
     friend bool operator<=(const Tradeable &lhs, const Tradeable &rhs) {
@@ -90,7 +82,7 @@ public:
         return lhs._price == rhs._price
                && lhs._rent == rhs._rent
                && lhs._owner == rhs._owner
-               && lhs._type == rhs._type;
+               && lhs._set == rhs._set;
     }
 
     friend bool operator!=(const Tradeable &lhs, const Tradeable &rhs) {
@@ -121,12 +113,12 @@ public:
         _owner = owner;
     }
 
-    Color type() const {
-        return _type;
+    Set type() const {
+        return _set;
     }
 
-    void set_type(const Color &type) {
-        _type = type;
+    void set_type(const Set &type) {
+        _set = type;
     }
 
 

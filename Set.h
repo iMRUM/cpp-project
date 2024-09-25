@@ -11,15 +11,15 @@
 #include <algorithm>
 #include <iostream>
 #include "Street.h"
-// Color has Streets
-class Color {
+// Set has Streets
+class Set {
 public:
-    Color(const std::string& name);
+    Set(const std::string& name);
 
-    // Add a street to this color group
+    // Add a street to this color set
     void addStreet(Street* street);
 
-    // Check if the player owns all streets in this color group
+    // Check if the player owns all streets in this set
     bool isCompleteSetOwned(Player* owner) const;
 
     // Build houses on a street in this color group (ensuring even build)

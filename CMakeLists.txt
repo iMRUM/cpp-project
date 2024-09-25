@@ -12,7 +12,6 @@ add_executable(cpp
     Game.h
         Property.cpp
         Property.h
-        Square.cpp
         Street.cpp
         Street.h
         Railroad.cpp
@@ -28,7 +27,7 @@ add_executable(cpp
         SquareFactory.cpp
         SquareFactory.h
         Constants.h
-        Color.cpp
-        Color.h
+        Set.cpp
+        Set.h
         Tradeable.cpp
         Tradeable.hpp)

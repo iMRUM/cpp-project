@@ -5,7 +5,7 @@
 #ifndef CONSTANTS_HPP
 #define CONSTANTS_HPP
 
-#include <SFML/Graphics.hpp>  // for sf::Color
+#include <SFML/Graphics.hpp>  // for sf::Set
 
 namespace Constants {
     // Define colors for different property groups

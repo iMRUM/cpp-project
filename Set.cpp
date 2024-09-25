@@ -2,26 +2,26 @@
 // Created by imry on 9/24/24.
 //
 
-#include "Color.h"
+#include "Set.h"
 
 
-Color::Color(const std::string& name) : colorName(name) {}
+Set::Set(const std::string& name) : colorName(name) {}
 
-void Color::addStreet(Street* street) {
+void Set::addStreet(Street* street) {
     streets.push_back(street);
 }
 
-bool Color::isCompleteSetOwned(Player* owner) const {
+bool Set::isCompleteSetOwned(Player* owner) const {
     // Check if the player owns all the streets in this color group
     for (const Street* street : streets) {
-        if (street->getOwner() != owner) {
+        if (street->getOwner() != *owner) {
             return false;
         }
     }
     return true;
 }
 
-void Color::buildHouseOnStreet(Street* street, Player* owner) {
+void Set::buildHouseOnStreet(Street* street, Player* owner) {
     if (!isCompleteSetOwned(owner)) {
         throw std::logic_error("Player does not own the complete color set.");
     }
@@ -34,8 +34,8 @@ void Color::buildHouseOnStreet(Street* street, Player* owner) {
     std::cout << "House built on " << street->getName() << " in color group " << colorName << "\n";
 }
 
-const std::vector<Street*>& Color::getStreets() const {
+const std::vector<Street*>& Set::getStreets() const {
     return streets;
 }
 
-const std::string& Color::getColorName() const {
+const std::string& Set::getColorName() const {
