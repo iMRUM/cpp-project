@@ -8,7 +8,7 @@
 
 #include "Player.h"
 
-
+// Square is inherited by Street(Tradeable), Railroad(Tradeable), Jail, SpecialSquare
 class Square {
 public:
     explicit Square(const std::string& name);
