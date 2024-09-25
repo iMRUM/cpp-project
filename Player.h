@@ -4,34 +4,38 @@
 
 #ifndef PLAYER_H
 #define PLAYER_H
+#include <memory>
 #include <string>
 #include <vector>
-
+#include <utility>
 #include "Street.h"
 
-
+using namespace std;
 class Player {
 private:
-    std::string _name;
+    string _name;
     int _position;
     int _money;
-    std::vector<Street*> _owned_streets;
+    
+    pair<string, unique_ptr<Tradeable>> _owned_tradeables;
 public:
-    Player(const std::string& name, int initialMoney);
+    Player(const string& name, int initialMoney);
 
     void move(int steps);
     void addMoney(int amount);
     void subtractMoney(int amount);
     void buyStreet(Street& Street);
-    
+
+    void buyProperty(string street_name, int type);
+
 
     bool isBankrupt() const;
 
-    std::string name() const {
+    string name() const {
         return _name;
     }
 
-    void set_name(const std::string &name) {
+    void set_name(const string &name) {
         _name = name;
     }
 
@@ -47,21 +51,10 @@ public:
         return _money;
     }
 
-    std::vector<Street *> streets() const {
+    pair<string, Street *> owned_streets() const {
         return _owned_streets;
     }
 
-    void set_owned_streets1(const std::vector<Street *> &owned_streets) {
-        _owned_streets = owned_streets;
-    }
-
-    std::vector<Street *> owned_streets() const {
-        return _owned_streets;
-    }
-
-    void set_owned_streets(const std::vector<Street *> &owned_streets) {
-        owned_streets = owned_streets;
-    }
 
     friend bool operator==(const Player &lhs, const Player &rhs) {
         return lhs.name() == rhs.name()
