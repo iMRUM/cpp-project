@@ -26,4 +26,7 @@ add_executable(cpp
         Dice.cpp
         Dice.h
         SquareFactory.cpp
-        SquareFactory.h)
+        SquareFactory.h
+        Constants.h
+        Color.cpp
+        Color.h)
