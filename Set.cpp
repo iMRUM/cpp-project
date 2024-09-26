@@ -5,37 +5,34 @@
 #include "Set.h"
 
 
-Set::Set(const std::string& name) : colorName(name) {}
-
-void Set::addStreet(Street* street) {
-    streets.push_back(street);
+Set::Set(int color, const std::string &name, std::unordered_set<std::unique_ptr<Tradeable>> tradeable_unique_ptrs): _color_name(name), _color(color), _tradeables(tradeables) {
 }
-
-bool Set::isCompleteSetOwned(Player* owner) const {
-    // Check if the player owns all the streets in this color group
-    for (const Street* street : streets) {
-        if (street->getOwner() != *owner) {
+bool Set::canBuildHouseOnStreet(Street* street, Player* owner) const {
+    for (const auto& tradeable : _tradeables) {
+        // Attempt to cast tradeable to Street*
+        Street* tempStreet = dynamic_cast<Street*>(tradeable.get());
+        // If the tradeable is not a Street or the number of houses is different, return false
+        if (tempStreet->getNumHouses() != street->getNumHouses()) {
             return false;
         }
     }
     return true;
 }
 
-void Set::buildHouseOnStreet(Street* street, Player* owner) {
-    if (!isCompleteSetOwned(owner)) {
-        throw std::logic_error("Player does not own the complete color set.");
-    }
 
-    if (!canBuildHouseOnStreet(street, owner)) {
-        throw std::logic_error("Cannot build more houses on this street.");
-    }
 
-    street->buildHouse();
-    std::cout << "House built on " << street->getName() << " in color group " << colorName << "\n";
+bool Set::isCompleteSetOwned(Player* owner) const {
+    // Check if the player owns all the streets in this _color group
+    for (unique_ptr<Tradeable> tradeable : _tradeables) {
+        if (tradeable->owner() != *owner) {
+            return false;
+        }
+    }
+    return true;
 }
 
-const std::vector<Street*>& Set::getStreets() const {
-    return streets;
-}
+
 
 const std::string& Set::getColorName() const {
+    return _color_name;
+}

@@ -10,32 +10,31 @@
 #include <stdexcept>
 #include <algorithm>
 #include <iostream>
+#include <set>
+#include <unordered_set>
 #include "Street.h"
-// Set has Streets
+#include "Tradeable.hpp"
+using namespace std;
+//Color set has a name, a _color and Tradeables
 class Set {
-public:
-    Set(const std::string& name);
+private:
+    int _color;
+    string _color_name;
+    unordered_set<unique_ptr<Tradeable>> _tradeables;
 
-    // Add a street to this color set
-    void addStreet(Street* street);
+    // Helper function to ensure balanced house-building
+    bool canBuildHouseOnStreet(Street* street, Player* owner) const;
+public:
+    Set(int color, const string& name, unordered_set<unique_ptr<Tradeable>> tradeables);
 
     // Check if the player owns all streets in this set
     bool isCompleteSetOwned(Player* owner) const;
 
-    // Build houses on a street in this color group (ensuring even build)
-    void buildHouseOnStreet(Street* street, Player* owner);
 
-    // Get all streets in the color group
-    const std::vector<Street*>& getStreets() const;
 
-    const std::string& getColorName() const;
+    const string& getColorName() const;
 
-private:
-    std::string colorName;
-    std::vector<Street*> streets;
 
-    // Helper function to ensure balanced house-building
-    bool canBuildHouseOnStreet(Street* street, Player* owner) const;
 };
 
 #endif // COLOR_HPP

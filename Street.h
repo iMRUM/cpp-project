@@ -54,6 +54,20 @@ public:
 
     virtual void landOn(Player& player) override;
 
+    // Assignment operator to handle std::unique_ptr<Street>
+    Street& operator=(std::unique_ptr<Street> other) {
+        if (this != other.get()) {  // Self-assignment check
+            // Transfer data from the other Street
+            this->houseCost = other->houseCost;
+            this->houses = other->houses;
+            this->hotel = other->hotel;
+            this->set_price(other->price());   // Assuming Tradeable has setPrice()
+            this->set_rent(other->rent());     // Assuming Tradeable has setRent()
+            this->set_name(other->name());     // Assuming Square has setName()
+            this->set_type(other->type());     // Assuming Tradeable has setType()
+        }
+        return *this;
+    }
 };
 
 
