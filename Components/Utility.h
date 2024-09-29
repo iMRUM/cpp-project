@@ -21,9 +21,9 @@ class Utility: public Tradeable{
         }
         return *this;
     }
-
     // Destructor (Rule of Three)
     ~Utility() override = default;
+
 };
 
 

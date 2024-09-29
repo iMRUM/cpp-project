@@ -7,28 +7,24 @@
 
 // Method to build a house on the street
 void Street::buildHouse() {
-    if (hotel) {
+    if (hotel) { // should be deprecated
         std::cerr << "Cannot build houses after a hotel has been built." << std::endl;
         return;
     }
     if (houses>0){set_rent(rent()*2);}
     houses++;
-
-
     std::cout << "House built. Total houses: " << houses << std::endl;
-    // Additional logic to increase rent or update street status can be added here
 }
 
 // Method to build a hotel on the street
 void Street::buildHotel() {
-    if (houses < 4) {
+    if (houses < 4) { // should be deprecated
         std::cerr << "Need 4 houses before building a hotel." << std::endl;
         return;
     }
     set_rent(rent()*3);
     hotel = true;
     std::cout << "Hotel built on the street." << std::endl;
-    // Additional logic for hotel effects can be added here
 }
 
 // Method for when a player lands on the street
@@ -37,7 +33,6 @@ void Street::landOn(Player& player) {
     // Logic to handle rent payment, ownership check, etc.
     if (player != owner()) {
         std::cout << player.name() << " owes rent of " << rent() << std::endl;
-        // player.payRent(rent());  // Example, assuming player has a payRent method
     }
 }
 

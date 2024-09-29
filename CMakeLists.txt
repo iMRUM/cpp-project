@@ -8,8 +8,8 @@ include_directories(.)
 add_executable(cpp
         Board.cpp
         Board.h
-        GameLogic/Game.cpp
-        GameLogic/Game.h
+        GameLogic/GameLogic.cpp
+        GameLogic/GameLogic.h
         Components/Street.cpp
         Components/Street.h
         Player.cpp
@@ -30,4 +30,19 @@ add_executable(cpp
         Components/Railroad.cpp
         Components/Railroad.h
         Components/Utility.cpp
-        Components/Utility.h)
+        Components/Utility.h
+        Components/Square.h
+        Components/SpecialSquare.cpp
+        Components/SpecialSquare.h
+        States/State.h
+        States/JailState.cpp
+        States/JailState.h
+        States/NormalState.cpp
+        States/NormalState.h
+        Comand/AbstractCommand.hpp
+        Comand/MoveCommand.hpp
+        Comand/BuyCommand.hpp
+        UI/GeneralUI.hpp
+        UI/PlayerUI.hpp
+        Comand/Pay2PeerCommand.hpp
+        Comand/RollDiceCommand.hpp)

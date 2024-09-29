@@ -10,7 +10,7 @@ private:
 
 protected:
     // Constructor is protected to allow instantiation only by derived classes
-    explicit Square(const std::string &name)
+    Square(const std::string &name)
         : _name(name) {
     }
 

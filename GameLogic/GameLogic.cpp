@@ -3,3 +3,13 @@
 //
 
 #include "GameLogic.h"
+
+
+void GameLogic::start() {
+}
+
+void GameLogic::nextTurn() {
+}
+
+
+

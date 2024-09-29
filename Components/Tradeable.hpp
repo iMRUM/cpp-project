@@ -16,7 +16,6 @@ class Tradeable: public Square{
     std::string _name;
     Set _set;
 public:
-    ~Tradeable() override = default;
     void landOn(Player& player) override;
 
     Tradeable(const std::string &name, const int price, const int rent, const Set &type_set)
@@ -31,7 +30,13 @@ public:
           _owner(other._owner),
           _set(other._set) {
     }
-
+    Tradeable(const unique_ptr<Tradeable> &other)
+        : Square(other->name()), _price(other->_price),
+          _rent(other->_rent),
+          _owner(other->_owner),
+          _set(other->_set) {
+    }
+    ~Tradeable() override = default;
 
     Tradeable & operator=(const Tradeable &other) {
         if (this == &other)
