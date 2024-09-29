@@ -31,5 +31,4 @@ add_executable(cpp
         SetUtility.h
         Railroad.cpp
         Railroad.h
-        Utility.cpp
-        Utility.h)
+)
