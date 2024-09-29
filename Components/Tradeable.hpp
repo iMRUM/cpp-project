@@ -4,8 +4,8 @@
 
 #ifndef TRADEABLE_HPP
 #define TRADEABLE_HPP
-#include <Square.h>
 
+#include "Square.h"
 #include "Player.h"
 #include "Set.h"
 
@@ -13,6 +13,7 @@ class Tradeable: public Square{
     int _price;
     int _rent;
     Player* _owner;
+    std::string _name;
     Set _set;
 public:
     ~Tradeable() override = default;

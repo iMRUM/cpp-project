@@ -8,12 +8,10 @@ include_directories(.)
 add_executable(cpp
         Board.cpp
         Board.h
-    Game.cpp
-    Game.h
-        Street.cpp
-        Street.h
-        SpecialSquare.cpp
-        SpecialSquare.h
+        GameLogic/Game.cpp
+        GameLogic/Game.h
+        Components/Street.cpp
+        Components/Street.h
         Player.cpp
         Player.h
         Dice.cpp
@@ -23,12 +21,13 @@ add_executable(cpp
         Constants.h
         Set.cpp
         Set.h
-        Tradeable.cpp
-        Tradeable.hpp
+        Components/Tradeable.cpp
+        Components/Tradeable.hpp
         SetStreet.cpp
         SetStreet.h
         SetUtility.cpp
         SetUtility.h
-        Railroad.cpp
-        Railroad.h
-)
+        Components/Railroad.cpp
+        Components/Railroad.h
+        Components/Utility.cpp
+        Components/Utility.h)

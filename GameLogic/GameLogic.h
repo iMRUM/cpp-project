@@ -9,9 +9,9 @@
 //singleton
 
 
-class Game{
+class GameLogic{
 public:
-    Game(int numPlayers);
+    GameLogic(int numPlayers);
     void start();
 private:
     std::vector<Player> players;

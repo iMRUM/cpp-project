@@ -12,17 +12,20 @@ class Railroad: public Tradeable{
     public:
     Railroad(const std::string &name, const int price = 200, const int rent = 50, const Set &type_set = SetUtility(8, "Railroads")): Tradeable(name, price, rent, type_set){}
     // Copy Constructor (Rule of Three)
-    Railroad(const Railroad &other) : Tradeable(other) {}
+    Railroad(const Railroad &other) : Railroad(other.name(), other.price(), other.rent(), SetUtility(other.type())) {}
 
     // Copy Assignment Operator (Rule of Three)
-    Railroad& operator=(const Railroad &other) {
+    Railroad& operator=(const Railroad& other) {
         if (this != &other) {
-            Tradeable::operator=(other);  // Call base class copy assignment
+            set_name(other.name());
+            set_price(other.price());
+            set_rent(other.rent());
+            set_type(other.type());
         }
         return *this;
     }
     // Destructor (Rule of Three)
-    ~Railroad() override = default;
+    ~Railroad() = default;
 };
 
 
