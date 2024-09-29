@@ -10,14 +10,8 @@ add_executable(cpp
         Board.h
     Game.cpp
     Game.h
-        Property.cpp
-        Property.h
         Street.cpp
         Street.h
-        Railroad.cpp
-        Railroad.h
-        Utility.cpp
-        Utility.h
         SpecialSquare.cpp
         SpecialSquare.h
         Player.cpp
@@ -30,4 +24,12 @@ add_executable(cpp
         Set.cpp
         Set.h
         Tradeable.cpp
-        Tradeable.hpp)
+        Tradeable.hpp
+        SetStreet.cpp
+        SetStreet.h
+        SetUtility.cpp
+        SetUtility.h
+        Railroad.cpp
+        Railroad.h
+        Utility.cpp
+        Utility.h)

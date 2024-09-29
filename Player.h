@@ -31,6 +31,13 @@ public:
 
     bool isBankrupt() const;
 
+    Player(const Player &other)
+            : _name(other._name),
+              _position(other._position),
+              _money(other._money),
+              _owned_tradeables(other._owned_tradeables) {
+    }
+
     string name() const {
         return _name;
     }
@@ -51,29 +58,25 @@ public:
         return _money;
     }
 
-    pair<string, Street *> owned_streets() const {
-        return _owned_streets;
+    pair<string, unique_ptr<Tradeable>> owned_tradeables() const {
+        return _owned_tradeables;
+    }
+
+    void owned_tradeables(const pair<string, unique_ptr<Tradeable>> &owned_tradeables) {
+        _owned_tradeables = owned_tradeables;
     }
 
 
-    friend bool operator==(const Player &lhs, const Player &rhs) {
-        return lhs.name() == rhs.name()
-               && lhs.position() == rhs.position()
-               && lhs.money() == rhs.money()
-               && lhs.owned_streets() == rhs.owned_streets();
-    }
-    friend bool operator==(const Player &lhs, const Player *rhs) {
-        return lhs.name() == rhs->name()
-               && lhs.position() == rhs->position()
-               && lhs.money() == rhs->money()
-               && lhs.owned_streets() == rhs->owned_streets();
-    }
 
-    friend bool operator!=(const Player &lhs, const Player &rhs) {
-        return !(lhs == rhs);
+    Player & operator=(const Player &other) {
+        if (this == &other)
+            return *this;
+        _name = other._name;
+        _position = other._position;
+        _money = other._money;
+        _owned_tradeables = other._owned_tradeables;
+        return *this;
     }
-
-
 };
 
 

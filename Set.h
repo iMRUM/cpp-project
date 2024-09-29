@@ -15,20 +15,17 @@
 #include "Street.h"
 #include "Tradeable.hpp"
 using namespace std;
-//Color set has a name, a _color and Tradeables
+//Color set has a name, a _color
 class Set {
 private:
     int _color;
     string _color_name;
-    unordered_set<unique_ptr<Tradeable>> _tradeables;
 
-    // Helper function to ensure balanced house-building
-    bool canBuildHouseOnStreet(Street* street, Player* owner) const;
+
+
 public:
-    Set(int color, const string& name, unordered_set<unique_ptr<Tradeable>> tradeables);
+    Set(int color, const string& name);
 
-    // Check if the player owns all streets in this set
-    bool isCompleteSetOwned(Player* owner) const;
 
 
 

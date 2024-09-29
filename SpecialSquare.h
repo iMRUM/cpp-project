@@ -13,7 +13,7 @@
 class SpecialSquare : public Square {
 public:
     SpecialSquare(const std::string& name);
-    virtual void landOn(Player& player) override;
+    void landOn(Player& player) override;
 };
 
 
