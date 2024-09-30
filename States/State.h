@@ -9,8 +9,9 @@
 
 class State {
 public:
+    State();
     virtual ~State() =default;
-    virtual void rollDice(Player& player) = 0;
+    virtual void execute() = 0;
 
 
 };
