@@ -7,6 +7,8 @@
 
 #include <SFML/Graphics.hpp>  // for sf::Set
 
+#include "Square.h"
+
 namespace Constants {
     // Define colors for different property groups
     const sf::Color BROWN = sf::Color(139, 69, 19);
@@ -25,7 +27,7 @@ namespace Constants {
         UTILITY,
         SPECIAL
     };
-
+    const std::vector<Square*> SBOARD(40, nullptr);
     // Define other game constants
     const int INITIAL_PLAYER_MONEY = 1500;
     const int PASS_GO_MONEY = 200;

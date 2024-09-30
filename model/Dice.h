@@ -8,9 +8,10 @@
 
 
 class Dice {
+    size_t double_roll[8] = {0};
 public:
     Dice();
-    std::pair<int, int> roll();  // Returns the result of two dice rolls
+    int roll();  // Returns the result of two dice rolls
 };
 
 

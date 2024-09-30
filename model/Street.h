@@ -8,17 +8,16 @@
 
 #include "Player.h"
 #include "Tradeable.hpp"
-#include "Property.h"
 
-// Street IS A Square and HAS Properties
-class Street : public Square, public Tradeable{
+// Street IS A Tradeable
+class Street : public Tradeable{
 private:
     int houseCost;
     int houses;
     bool hotel;
 public:
     Street(const std::string &name, int price, int rent, int house_cost, const Set &type)
-       : Square(name), Tradeable(price, rent, type), houseCost(house_cost), houses(0), hotel(false) {}
+       :Tradeable(name, price, rent, type), houseCost(house_cost), houses(0), hotel(false) {}
 
 
     void buildHouse();
@@ -52,7 +51,7 @@ public:
         this->houses = houses;
     }
 
-    virtual void landOn(Player& player) override;
+    virtual int landOn(Player *player) override;
 
     // Assignment operator to handle std::unique_ptr<Street>
     Street& operator=(std::unique_ptr<Street> other) {
@@ -68,6 +67,18 @@ public:
         }
         return *this;
     }
+    unique_ptr<Street> operator()(std::unique_ptr<Tradeable> tradeablePtr) const {
+        // Attempt to cast the raw pointer from the unique_ptr
+        Street* streetPtr = dynamic_cast<Street*>(tradeablePtr.get());
+
+        if (streetPtr) {
+            // Release the ownership from the tradeablePtr and cast it to unique_ptr<Street>
+            tradeablePtr.release();
+            return std::unique_ptr<Street>(streetPtr);
+        }
+            // Return nullptr if the cast fails
+            return nullptr;
+        }
 };
 
 
