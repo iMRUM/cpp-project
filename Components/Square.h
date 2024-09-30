@@ -40,9 +40,9 @@ public:
     void set_name(const std::string &name) {
         _name = name;
     }
-
+    virtual bool isTradeable() = 0;
     // Pure virtual function
-    virtual void landOn(Player& player) = 0;
+    virtual int landOn(Player *player) = 0;
 };
 
 #endif // SQUARE_H

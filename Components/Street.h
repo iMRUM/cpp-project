@@ -51,7 +51,7 @@ public:
         this->houses = houses;
     }
 
-    virtual void landOn(Player& player) override;
+    virtual int landOn(Player *player) override;
 
     // Assignment operator to handle std::unique_ptr<Street>
     Street& operator=(std::unique_ptr<Street> other) {

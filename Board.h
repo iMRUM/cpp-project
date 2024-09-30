@@ -16,9 +16,10 @@ public:
     std::unique_ptr<Square> getSquare(size_t index) const;
 private:
     static Board* instance;
+    std::vector<std::unique_ptr<Square>> squares;
     Board(const std::vector<std::unique_ptr<Square>> &squares) : squares(squares) {
     }
-    std::vector<std::unique_ptr<Square>> squares;
+
     void initializeSquares();
 };
 

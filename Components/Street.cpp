@@ -28,11 +28,11 @@ void Street::buildHotel() {
 }
 
 // Method for when a player lands on the street
-void Street::landOn(Player& player) {
-    std::cout << player.name() << " landed on " << name() << std::endl;
+int Street::landOn(Player *player) {
+    std::cout << player->name() << " landed on " << name() << std::endl;
     // Logic to handle rent payment, ownership check, etc.
-    if (player != owner()) {
-        std::cout << player.name() << " owes rent of " << rent() << std::endl;
+    if (*player != owner()) {
+        std::cout << player->name() << " owes rent of " << rent() << std::endl;
     }
 }
 

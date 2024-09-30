@@ -16,7 +16,6 @@ class Tradeable: public Square{
     std::string _name;
     Set _set;
 public:
-    void landOn(Player& player) override;
 
     Tradeable(const std::string &name, const int price, const int rent, const Set &type_set)
         :Square(name), _price(price),
@@ -69,7 +68,11 @@ public:
         return _owner;
     }
 
-    void set_owner(const Player &owner) {
+    bool hasOwner() const {
+        return _owner != nullptr;
+    }
+
+    void set_owner(Player* owner) {
         _owner = owner;
     }
 
@@ -81,7 +84,13 @@ public:
         _set = type;
     }
 
+//Methods
 
+    int landOn(Player *player) override;
+    void buy(Player *player);
+    bool isTradeable() override {
+        return true;
+    }
 };
 
 #endif //TRADEABLE_HPP
