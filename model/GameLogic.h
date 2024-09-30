@@ -8,7 +8,7 @@
 #include "Dice.h"
 #include "Player.h"
 #include "SetStreet.h"
-#include "Components/SpecialSquare.h"
+#include "SpecialSquare.h"
 //singleton
 using namespace std;
 

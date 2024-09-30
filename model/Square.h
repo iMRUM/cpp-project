@@ -31,12 +31,12 @@ public:
     // Virtual Destructor
     virtual ~Square() = default;
 
-    // Getter for name
+    // Getter for getName
     std::string name() const {
         return _name;
     }
 
-    // Setter for name
+    // Setter for getName
     void set_name(const std::string &name) {
         _name = name;
     }

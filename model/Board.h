@@ -5,7 +5,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include <memory>
-#include <Components/Square.h>
+#include "Square.h"
 #include <vector>
 
 class Square;

@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics.hpp>  // for sf::Set
 
-#include "Components/Square.h"
+#include "Square.h"
 
 namespace Constants {
     // Define colors for different property groups
