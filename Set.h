@@ -12,8 +12,8 @@
 #include <iostream>
 #include <set>
 #include <unordered_set>
-#include "Street.h"
-#include "Tradeable.hpp"
+#include "Components/Street.h"
+#include "Components/Tradeable.hpp"
 using namespace std;
 //Color set has a name, a _color
 class Set {
@@ -25,8 +25,7 @@ private:
 
 public:
     Set(int color, const string& name);
-
-
+    virtual ~Set();
 
 
     const string& getColorName() const;

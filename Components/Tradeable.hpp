@@ -8,6 +8,7 @@
 #include "Square.h"
 #include "Player.h"
 #include "Set.h"
+#include "SetStreet.h"
 
 class Tradeable: public Square{
     int _price;
@@ -35,7 +36,7 @@ public:
           _owner(other->_owner),
           _set(other->_set) {
     }
-    ~Tradeable() override = default;
+    virtual ~Tradeable() override = default;
 
     Tradeable & operator=(const Tradeable &other) {
         if (this == &other)
@@ -76,8 +77,8 @@ public:
         _owner = owner;
     }
 
-    Set type() const {
-        return _set;
+    SetStreet *type() const {
+        return &_set;
     }
 
     void set_type(const Set &type) {
