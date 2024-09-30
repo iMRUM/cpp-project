@@ -36,7 +36,7 @@ void GameLogic::rollDice() { // maybe apply this idea later for rest of methods 
 }
 
 void GameLogic::move(int steps) {
-    int pos = current_player->position();
+    int pos = current_player->getPosition();
     vector<Player*> playersOnSquare = squares[pos].second;
     playersOnSquare.erase(playersOnSquare.begin()); // fifo in vector because of "turns"
     squares[pos+steps].second.push_back(current_player);
@@ -45,7 +45,7 @@ void GameLogic::move(int steps) {
 }
 
 void GameLogic::landOnSquare(int position) {
-    // Get the raw pointer to the Square object at the given position
+    // Get the raw pointer to the Square object at the given getPosition
     Square* square = squares[position].first.get();
 
     if (square->isTradeable()) {

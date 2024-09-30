@@ -15,18 +15,22 @@
 using namespace std;
 class Player {
 private:
+    bool _bankrupt;
+    int _position; // getPosition(index) on board
+    int _balance;
     string _name;
-    int _position; // position(index) on board
-    int _money;
     map<string, unique_ptr<Tradeable>> _owned_tradeables;
     void modifyMoney(int amount);
 public:
-    Player(const string& name, const int initialMoney = 1500): _name(name), _position(0), _money(initialMoney) {}
+    Player(const string& name, const int initialMoney = 1500): _name(name), _position(0), _balance(initialMoney),
+                                                               _bankrupt(false) {
+    }
+
     Player(const Player &other)
-            : _name(other.name()),
-              _position(other.position()),
-              _money(other.money()),
-              _owned_tradeables(other.owned_tradeables()) {
+            : _name(other.getName()),
+              _position(other.getPosition()),
+              _balance(other.getBalance()),
+              _owned_tradeables(other.getOwnedTradeables()) {
     }
 
     void move(int steps);
@@ -41,34 +45,39 @@ public:
 
 
 
+    void setBankrupt(bool bankrupt) {
+        this->_bankrupt = bankrupt;
+    }
 
-    bool isBankrupt() const;
+    bool isBankrupt() const {
+        return _bankrupt;
+    }
 
-    string name() const {
+    string getName() const {
         return _name;
     }
 
-    void set_name(const string &name) {
+    void setName(const string &name) {
         _name = name;
     }
 
-    int position() const {
+    int getPosition() const {
         return _position;
     }
 
-    void set_position(const int position) {
+    void setPosition(const int position) {
         _position = position;
     }
 
-    int money() const {
-        return _money;
+    int getBalance() const {
+        return _balance;
     }
 
-    map<string, unique_ptr<Tradeable>> owned_tradeables() const {
+    map<string, unique_ptr<Tradeable>> getOwnedTradeables() const {
         return _owned_tradeables;
     }
 
-    void set_owned_tradeables(const map<string, unique_ptr<Tradeable>> &owned_tradeables) {
+    void setOwnedTradeables(const map<string, unique_ptr<Tradeable>> &owned_tradeables) {
         _owned_tradeables = owned_tradeables;
     }
 
@@ -77,10 +86,10 @@ public:
     Player & operator=(const Player &other) {
         if (this == &other)
             return *this;
-        _name = other.name();
-        _position = other.position();
-        _money = other.money();
-        _owned_tradeables = other.owned_tradeables();
+        _name = other.getName();
+        _position = other.getPosition();
+        _balance = other.getBalance();
+        _owned_tradeables = other.getOwnedTradeables();
         return *this;
     }
 };

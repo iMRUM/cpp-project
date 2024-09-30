@@ -15,7 +15,7 @@
 #include "Components/Street.h"
 #include "Components/Tradeable.hpp"
 using namespace std;
-//Color set has a name, a _color
+//Color set has a getName, a _color
 class Set {
 private:
     int _color;
