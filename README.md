@@ -1,10 +1,9 @@
 
 # Monopoly Game - Final Project
-
-**Course:** C++ Programming - Ariel University  
-**Author:** [Your Name]  
-**Date:** [Submission Date]
-
+ 
+**Author:** Imry Rodkin 
+**Date:** 03/10/24
+**Course:** C++ Programming @ Ariel University 
 ## Project Overview
 
 This project is a C++ implementation of the classic Monopoly board game, designed for 2 to 8 players.
