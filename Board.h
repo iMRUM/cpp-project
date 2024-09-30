@@ -5,15 +5,21 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include <memory>
-#include <Square.h>
+#include <Components/Square.h>
 #include <vector>
+
+class Square;
 
 class Board {
 public:
-    Board();
-    Square* getSquare(int index);
+    static Board* getInstance()
+    std::unique_ptr<Square> getSquare(size_t index) const;
 private:
+    static Board* instance;
     std::vector<std::unique_ptr<Square>> squares;
+    Board(const std::vector<std::unique_ptr<Square>> &squares) : squares(squares) {
+    }
+
     void initializeSquares();
 };
 

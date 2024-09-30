@@ -8,18 +8,10 @@ include_directories(.)
 add_executable(cpp
         Board.cpp
         Board.h
-    Game.cpp
-    Game.h
-        Property.cpp
-        Property.h
-        Street.cpp
-        Street.h
-        Railroad.cpp
-        Railroad.h
-        Utility.cpp
-        Utility.h
-        SpecialSquare.cpp
-        SpecialSquare.h
+        GameLogic/GameLogic.cpp
+        GameLogic/GameLogic.h
+        Components/Street.cpp
+        Components/Street.h
         Player.cpp
         Player.h
         Dice.cpp
@@ -29,5 +21,28 @@ add_executable(cpp
         Constants.h
         Set.cpp
         Set.h
-        Tradeable.cpp
-        Tradeable.hpp)
+        Components/Tradeable.cpp
+        Components/Tradeable.hpp
+        SetStreet.cpp
+        SetStreet.h
+        SetUtility.cpp
+        SetUtility.h
+        Components/Railroad.cpp
+        Components/Railroad.h
+        Components/Utility.cpp
+        Components/Utility.h
+        Components/Square.h
+        Components/SpecialSquare.cpp
+        Components/SpecialSquare.h
+        States/State.h
+        States/JailState.cpp
+        States/JailState.h
+        States/NormalState.cpp
+        States/NormalState.h
+        Comand/AbstractCommand.hpp
+        Comand/MoveCommand.hpp
+        Comand/BuyCommand.hpp
+        UI/GeneralUI.hpp
+        UI/PlayerUI.hpp
+        Comand/Pay2PeerCommand.hpp
+        Comand/RollDiceCommand.hpp)
