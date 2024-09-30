@@ -39,10 +39,11 @@ add_executable(cpp
         States/JailState.h
         States/NormalState.cpp
         States/NormalState.h
-        Comand/AbstractCommand.hpp
-        Comand/MoveCommand.hpp
-        Comand/BuyCommand.hpp
+        controller/Comand/AbstractCommand.hpp
+        controller/Comand/MoveCommand.hpp
+        controller/Comand/BuyCommand.hpp
         UI/GeneralUI.hpp
         UI/PlayerUI.hpp
-        Comand/Pay2PeerCommand.hpp
-        Comand/RollDiceCommand.hpp)
+        controller/Comand/Pay2PeerCommand.hpp
+        controller/Comand/RollDiceCommand.hpp
+        controller/GameController.hpp)
