@@ -5,10 +5,16 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
 
-add_executable(cpp
-        controller/SquareFactory.h
-        model/Board.cpp
-        model/Constants.h
-        model/Dice.h
-        model/GameLogic.h
-        model/Railroad.h)
+add_executable(project
+        model/Components/Board.h
+        model/Components/Dice.h
+        model/Components/Railroad.h
+        model/Components/Board.cpp
+        model/Components/Dice.cpp
+        model/Components/Player.cpp
+        model/Components/Railroad.cpp
+        model/Components/SetStreet.cpp
+        model/Components/SetRailroad.h
+        controller/GameLogic.h
+        controller/GameLogic.cpp
+)

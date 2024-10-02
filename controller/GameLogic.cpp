@@ -4,11 +4,9 @@
 
 #include "GameLogic.h"
 
-#include "Components/SpecialSquare.h"
-
 void GameLogic::start() { //cg
     while (!isGameOver()) {
-        for (Player* player : players) {
+        for (Player* player : _players) {
             current_player = player;
             handlePlayerMove();
         }

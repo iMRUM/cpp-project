@@ -4,25 +4,29 @@
 
 #ifndef GAME_H
 #define GAME_H
-#include "Board.h"
-#include "Dice.h"
-#include "Player.h"
-#include "SetStreet.h"
-#include "SpecialSquare.h"
+#include "../model/Components/Board.h"
+#include "../model/Components/Dice.h"
+#include "../model/Components/Player.h"
+#include "../model/Components/SetStreet.h"
+#include "../model/Components/SpecialSquare.h"
 //singleton
 using namespace std;
 
 class GameLogic{
 public:
-    GameLogic(int numPlayers, const vector<Player*> &players): bank_balance(32000), players(players), board(){}
+    GameLogic(int numPlayers, const vector<Player&> &players): bank_balance(32000), board(), current_player(players.front()) {
+        for (Player p: players) {
+            _players.push_back(p);
+        }
+    }
 
     void start();
 private:
     int bank_balance;
-    vector<Player*> players;
+    vector<Player> _players;
     Board* board;
-    vector<pair<unique_ptr<Square>, vector<Player*>>> squares;
-    Player* current_player;
+    vector<pair<unique_ptr<Square>, vector<Player>>> squares;
+    Player current_player;
     Dice* dice;
     std::vector<int> double_rolls;
     void nextTurn();
