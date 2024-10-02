@@ -5,17 +5,8 @@
 #ifndef COLOR_HPP
 #define COLOR_HPP
 
-#include <vector>
 #include <string>
-#include <stdexcept>
-#include <algorithm>
-#include <iostream>
-#include <set>
-#include <unordered_set>
-#include "../Square_class/Tradeable_class/Street.h"
-#include "../Square_class/Tradeable_class/Tradeable.hpp"
 using namespace std;
-
 
 class Set {
 private:

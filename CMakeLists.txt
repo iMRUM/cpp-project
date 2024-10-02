@@ -15,4 +15,5 @@ add_executable(project
         controller/GameLogic.cpp
         model/Components/Set_class/Set.h
         model/Components/Square_class/Tradeable_class/Tradeable.cpp
+        model/Constants.h
 )
