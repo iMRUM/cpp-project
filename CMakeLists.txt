@@ -17,4 +17,5 @@ add_executable(project
         model/Components/SetRailroad.h
         controller/GameLogic.h
         controller/GameLogic.cpp
+        model/Components/SetTradeable.hpp
 )
