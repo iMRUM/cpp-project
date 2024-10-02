@@ -50,7 +50,7 @@ The game uses the Model-View-Controller (MVC) design pattern and employs the Sim
 
 ## Building the Project
 
-This project uses CMake as its build system. Ensure that you have SFML installed on your system before building.
+This project uses Makefile as its build system. Ensure that you have SFML installed on your system before building.
 
 1. Clone the repository.
 2. Navigate to the project's root directory.
@@ -59,7 +59,6 @@ This project uses CMake as its build system. Ensure that you have SFML installed
    ```bash
    mkdir build
    cd build
-   cmake ..
    make
    ```
 
