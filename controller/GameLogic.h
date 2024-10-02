@@ -7,14 +7,14 @@
 #include "../model/Components/Board.h"
 #include "../model/Components/Dice.h"
 #include "../model/Components/Player.h"
-#include "../model/Components/SetStreet.h"
-#include "../model/Components/SpecialSquare.h"
+#include "../model/Components/Set_class/SetStreet.h"
+#include "../model/Components/Square_class/SpecialSquare.h"
 //singleton
 using namespace std;
 
 class GameLogic{
 public:
-    GameLogic(int numPlayers, const vector<Player&> &players): bank_balance(32000), board(), current_player(players.front()) {
+    GameLogic(int numPlayers, const vector<Player&> &players): bank_balance(32000), board__(), current_player(players.front()) {
         for (Player p: players) {
             _players.push_back(p);
         }
@@ -24,7 +24,7 @@ public:
 private:
     int bank_balance;
     vector<Player> _players;
-    Board* board;
+    Board* board__;
     vector<pair<unique_ptr<Square>, vector<Player>>> squares;
     Player current_player;
     Dice* dice;
@@ -41,7 +41,7 @@ private:
 
     void rollDice(); // will call move
     void move(int steps); // wil call land on
-    void landOnSquare(int position); // player and square index on board
+    void landOnSquare(int position); // player and square index on board__
     void u_landOnTradeable(Tradeable *tradeable); // player can buy, pay rent, or skip
     void _buyTradeable(Tradeable& tradeable);
     void _buildOnStreet(Street &street);

@@ -8,14 +8,11 @@ include_directories(.)
 add_executable(project
         model/Components/Board.h
         model/Components/Dice.h
-        model/Components/Railroad.h
-        model/Components/Board.cpp
         model/Components/Dice.cpp
-        model/Components/Player.cpp
-        model/Components/Railroad.cpp
-        model/Components/SetStreet.cpp
-        model/Components/SetRailroad.h
+        model/Components/Set_class/SetStreet.cpp
+        model/Components/Set_class/SetRailroad.h
         controller/GameLogic.h
         controller/GameLogic.cpp
-        model/Components/SetTradeable.hpp
+        model/Components/Set_class/Set.h
+        model/Components/Square_class/Tradeable_class/Tradeable.cpp
 )
