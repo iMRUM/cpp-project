@@ -21,23 +21,19 @@ class Tradeable: public Square{
     Player* _owner;
 public:
 
-    Tradeable(const std::string &name, const int price, const int rent, Set* type_set)
+    Tradeable(const std::string &name, const int price, const int rent, shared_ptr<Set> type_set)
         :Square(name, type_set), _price(price),
-          _rent(rent), _owner(nullptr),{
-    }
+          _rent(rent), _owner(nullptr){}
 
     Tradeable(const Tradeable &other)
-        : Square(other.getName()), _price(other._price),
+        : Square(other.getName(), other.getSet()), _price(other._price),
           _rent(other._rent),
-          _owner(other._owner),
-          _set(other._set) {
-    }
-    Tradeable(const unique_ptr<Tradeable> &other)
-        : Square(other->getName()), _price(other->_price),
+          _owner(other._owner){}
+    Tradeable(const shared_ptr<Tradeable> &other)
+        : Square(other->getName(), other->getSet()), _price(other->_price),
           _rent(other->_rent),
-          _owner(other->_owner),
-          _set(other->_set) {
-    }
+          _owner(other->_owner){}
+
     virtual ~Tradeable() override {
         delete _owner;
 
@@ -46,10 +42,10 @@ public:
     Tradeable & operator=(const Tradeable &other) {
         if (this == &other)
             return *this;
-        _price = other._price;
-        _rent = other._rent;
-        _owner = other._owner;
-        _set = other._set;
+        setPrice(other.getPrice());
+        setRent(other.getRent());
+        setOwner(other.getOwner());
+        setSet(other.getSet());
         return *this;
     }
 
@@ -70,7 +66,7 @@ public:
         _rent = rent;
     }
 
-    const Player* getOwner() const {
+    Player* getOwner() const {
         return _owner;
     }
 

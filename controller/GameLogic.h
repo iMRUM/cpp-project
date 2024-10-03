@@ -9,12 +9,20 @@
 #include "../model/Components/Player.h"
 #include "../model/Components/Set_class/SetStreet.h"
 #include "../model/Components/Square_class/SpecialSquare.h"
+#include "Comand/BuyCommand.hpp"
+#include "Comand/MoveCommand.hpp"
+#include "Comand/RollDiceCommand.hpp"
 //singleton
 using namespace std;
 
 class GameLogic{
 public:
-    GameLogic(int numPlayers, const vector<Player&> &players): bank_balance(32000), board__(), current_player(players.front()) {
+    GameLogic(): bank_balance(32000), board__(), current_player(nullptr), dice(nullptr), _move(nullptr), _buy(nullptr),
+                 _roll_dice(nullptr) {
+    }
+
+    GameLogic(int numPlayers, const vector<Player&> &players): bank_balance(32000), board__(),
+                                                               current_player(players.front()), dice(nullptr) {
         for (Player p: players) {
             _players.push_back(p);
         }
@@ -23,16 +31,21 @@ public:
     void start();
 private:
     int bank_balance;
-    vector<Player> _players;
+    vector<Player*> _players;
     Board* board__;
-    vector<pair<unique_ptr<Square>, vector<Player>>> squares;
-    Player current_player;
+    vector<pair<unique_ptr<Square*>, vector<Player*>>> squares;
+    Player* current_player;
     Dice* dice;
+    shared_ptr<AbstractCommand> _command;
+    MoveCommand *_move;
+    BuyCommand *_buy;
+    RollDiceCommand *_roll_dice;
     std::vector<int> double_rolls;
     void nextTurn();
     void handlePlayerMove();
     void goneBankrupt(Player& player);
     bool isGameOver();
+    void execute_command(shared_ptr<AbstractCommand> command);
 
     //Methods according-ish to their order in actual game
     bool u_decision();

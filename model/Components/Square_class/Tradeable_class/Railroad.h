@@ -4,15 +4,13 @@
 
 #ifndef RAILROAD_H
 #define RAILROAD_H
-#include "SetRailroad.h"
+#include "../../../Constants.h"
 #include "Tradeable.hpp"
 
 
 class Railroad: public Tradeable{
     public:
-    Railroad(const std::string &name, const int price = 200, const int rent = 50): Tradeable(name, price, rent, type_set) {
-
-    }
+    Railroad(const std::string &name, const int price = 200, const int rent = 50, shared_ptr<SetRailroad>& type = Constants::RAILROAD_SET): Tradeable(name, price, rent, type) {}
     // Copy Constructor (Rule of Three)
     Railroad(const Railroad &other) : Railroad(other.getName(), other.getPrice(), other.getRent()) {}
 
@@ -22,7 +20,7 @@ class Railroad: public Tradeable{
             setName(other.getName());
             setPrice(other.getPrice());
             setRent(other.getRent());
-            set_type(other.getType());
+            setSet(other.getSet());
         }
         return *this;
     }

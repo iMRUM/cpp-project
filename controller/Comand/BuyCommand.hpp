@@ -7,14 +7,23 @@
 #include "AbstractCommand.hpp"
 
 class BuyCommand: public AbstractCommand{
-    void* field;
+    Tradeable* tradeable;
+    bool _valid_payment() const {
+        return _player->getBalance()>tradeable->getPrice();
+    }
 public:
-    BuyCommand(int steps) : _steps(steps) {}
+    BuyCommand(): tradeable(nullptr) {
+    }
+
+    BuyCommand(Player* player, Tradeable* tradeable) : AbstractCommand(player), tradeable(tradeable) {}
 
     ~BuyCommand() override;
 
-    void execute(Player &player) override {
-        player._(_field);
+    void execute() override {
+        if (_valid_payment()) {
+            tradeable->buy(_player);
+            _player->pay(tradeable->getPrice());
+        }
     }
 };
 #endif //BUYCOMMAND_HPP

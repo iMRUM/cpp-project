@@ -5,10 +5,9 @@
 #ifndef STREET_H
 #define STREET_H
 #include <string>
-
-#include "Player.h"
+#include "../Set_class/SetStreet.h"
 #include "Tradeable.hpp"
-
+class SetStreet;
 // Street IS A Tradeable
 class Street : public Tradeable{
 private:
@@ -16,7 +15,7 @@ private:
     int houses;
     bool hotel;
 public:
-    Street(const std::string &name, int price, int rent, int house_cost, const Set &type)
+    Street(const std::string &name, int price, int rent, int house_cost, SetStreet &type)
        :Tradeable(name, price, rent, type), houseCost(house_cost), houses(0), hotel(false) {}
 
 

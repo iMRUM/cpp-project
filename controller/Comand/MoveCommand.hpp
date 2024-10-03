@@ -5,18 +5,23 @@
 #ifndef MOVECOMMAND_HPP
 #define MOVECOMMAND_HPP
 #include "AbstractCommand.hpp"
-#include "Player.h"
+
 
 
 class MoveCommand: public AbstractCommand{
-int _steps;
+    private:
+    int _steps;
     public:
-    MoveCommand(int steps) : _steps(steps) {}
+    MoveCommand(): _steps(0) {
+    }
+
+    MoveCommand(Player* player, int steps) : AbstractCommand(player), _steps(steps) {
+}
 
 ~MoveCommand() override;
 
-void execute(Player &player) override {
-    player.move(_steps);
+void execute() override {
+    _player->move(_steps);
 }
 };
 

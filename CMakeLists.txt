@@ -16,4 +16,14 @@ add_executable(project
         model/Components/Set_class/Set.h
         model/Components/Square_class/Tradeable_class/Tradeable.cpp
         model/Constants.h
+        model/Components/Set_class/SpecialSet.hpp
+        model/Components/Set_class/SetTradeable.hpp
+        controller/Comand/AbstractCommand.hpp
+        controller/Comand/RollDiceCommand.hpp
+        controller/Comand/RollDiceCommand.cpp
+        controller/Comand/BuyCommand.hpp
+        controller/Comand/MoveCommand.hpp
+        controller/Comand/MoveCommand.cpp
+        controller/Comand/LandOnTradeableCommand.cpp
+        controller/Comand/LandOnTradeableCommand.hpp
 )

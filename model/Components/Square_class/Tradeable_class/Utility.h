@@ -4,12 +4,12 @@
 
 #ifndef UTILITY_H
 #define UTILITY_H
-#include "SetUtility.h"
+#include "../../Set_class/Set.h"
 #include "Tradeable.hpp"
 
 
 class Utility: public Tradeable{
-    Utility(const std::string &name, const int price = 150, const int rent = 10, const Set &type_set = SetRailroad(9, "Utility Companies")): Tradeable(name, price, rent, type_set){}
+    Utility(const string &name, const int price = 150, const int rent = 10, const shared_ptr<Set> &type = Constants::UTILITY_SET): Tradeable(name, price, rent, type_set){}
 
     // Copy Constructor (Rule of Three)
     Utility(const Utility &other) : Tradeable(other) {}

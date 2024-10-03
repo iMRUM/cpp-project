@@ -3,6 +3,12 @@
 //
 
 #include "GameLogic.h"
+#include "Comand/AbstractCommand.hpp"
+#include "Comand/BuyCommand.hpp"
+#include "Comand/MoveCommand.hpp"
+#include "Comand/RollDiceCommand.hpp"
+#include "Comand/LandOnTradeableCommand.hpp"
+#include "Comand/Pay2PeerCommand.hpp"
 
 void GameLogic::start() { //cg
     while (!isGameOver()) {
@@ -17,19 +23,32 @@ void GameLogic::nextTurn() { //cg
 }
 
 void GameLogic::handlePlayerMove() { //cg
-    //if not in jail
-    rollDice();
-    //else
+    if (!current_player->isInJail()) {
+        rollDice();
+    }
+    else {
+        // InJail methods
+    }
+   /* //if not in jail
+    _command = make_shared<RollDiceCommand>(current_player);
+    _command->execute();
+    int steps = dynamic_pointer_cast<RollDiceCommand>(_command)->getDiceResult();
+    _command = make_shared<MoveCommand>(current_player, steps);
+    //else*/
 
 }
 
-void GameLogic::goneBankrupt(Player &player) { //cg
+void GameLogic::execute_command(shared_ptr<AbstractCommand> command) {//exeprimental
+    command->execute();
 }
 
-bool GameLogic::isGameOver() { //cg
+void GameLogic::goneBankrupt(Player &player) { //exeprimental
 }
 
-void GameLogic::rollDice() { // maybe apply this idea later for rest of methods (using currrent_player instead of sending)
+bool GameLogic::isGameOver() { //exeprimental
+}
+
+void GameLogic::rollDice() {
     move(dice->roll());
 }
 

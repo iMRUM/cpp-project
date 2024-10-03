@@ -2,19 +2,21 @@
 #define SQUARE_H
 
 #include <string>
-#include "Player.h"
+#include "../Player.h"
 #include "../Set_class/Set.h"
+#include "../../Constants.h"
 
 class Player;
 using namespace std;
+using namespace Constants;
 class Square {
 private:
     string _name;
-    shared_ptr<Set> _set;
+    Set* _set;
 
 protected:
     // Constructor is protected to allow instantiation only by derived classes
-    Square(const string &name, shared_ptr<Set> set)
+    Square(const string &name, Set* set)
         : _name(name), _set(set) {
     }
 
@@ -46,6 +48,9 @@ public:
         _name = name;
     }
 
+    void setSet(const shared_ptr<Set>& set) {
+        _set = set;
+    }
     shared_ptr<Set> getSet() const{
         return _set;
     }

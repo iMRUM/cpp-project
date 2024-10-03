@@ -4,15 +4,22 @@
 
 #ifndef ABSTRACTCOMMAND_H
 #define ABSTRACTCOMMAND_H
-
+#include "../../model/Components/Player.h"
 
 class Player;
 //Concrete command for each operation
 class AbstractCommand {
+protected:
+    Player* _player;
 public:
+    AbstractCommand(Player* player = nullptr): _player(player) {}
     virtual ~AbstractCommand() = default;
     // The `execute` method that all concrete commands must implement
-    virtual void execute(Player& player) = 0;
+    virtual void execute() = 0;
+
+    Player* getPlayer() const {
+        return _player;
+    }
 };
 
 

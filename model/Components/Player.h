@@ -12,28 +12,32 @@
 #include "Square_class/Tradeable_class/Street.h"
 
 
+class Tradeable;
 using namespace std;
 class Player {
 private:
     bool _bankrupt;
+    bool _jail;
     int _position; // getPosition(index) on board
     int _balance;
+    short _doubles_count;
     string _name;
-    map<string, unique_ptr<Tradeable>> _owned_tradeables;
+    vector<Tradeable*> _owned_tradeables;
     void modifyMoney(int amount);
 public:
-    Player(const string& name, const int initialMoney = 1500): _bankrupt(false), _position(0), _balance(initialMoney),
-                                                               _name(name) {
+    Player(const string& name, const int initialMoney = 1500): _bankrupt(false), _jail(false), _position(0),
+                                                               _balance(initialMoney),
+                                                               _doubles_count(0), _name(name) {
     }
 
     Player(const Player &other)
-        : _bankrupt(other.isBankrupt()), _position(other.getPosition()),
-          _balance(other.getBalance()),
+        : _bankrupt(other.isBankrupt()), _jail(other.isInJail()), _position(other.getPosition()),
+          _balance(other.getBalance()), _doubles_count(0),
           _name(other.getName()),
           _owned_tradeables(other.getOwnedTradeables()) {
     }
 
-    void move(int steps);
+    void move(int steps); //TODO
 
 
     void buyStreet(Street& Street);
@@ -43,7 +47,13 @@ public:
     int pay(int amount);
 
 
+    void setInJail(const bool jail) {
+        _jail = jail;
+    }
 
+    bool isInJail() const {
+        return _jail;
+    }
 
     void setBankrupt(const bool bankrupt) {
         this->_bankrupt = bankrupt;
@@ -73,14 +83,21 @@ public:
         return _balance;
     }
 
-    map<string, unique_ptr<Tradeable>> getOwnedTradeables() const {
+    vector<Tradeable*> getOwnedTradeables() const {
         return _owned_tradeables;
     }
 
-    void setOwnedTradeables(const map<string, unique_ptr<Tradeable>> &owned_tradeables) {
+    void setOwnedTradeables(const vector<Tradeable*> &owned_tradeables) {
         _owned_tradeables = owned_tradeables;
     }
 
+    void incrementDoublesCount() {
+        ++_doubles_count;
+    }
+
+    void resetDoublesCount() {
+        _doubles_count = 0;
+    }
 
 
     Player & operator=(const Player &other) {
