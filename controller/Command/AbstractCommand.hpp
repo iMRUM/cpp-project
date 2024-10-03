@@ -7,7 +7,7 @@
 #include "../../model/Components/Player.h"
 
 class Player;
-//Concrete command for each operation
+//Abstract class command for commands processing
 class AbstractCommand {
 protected:
     Player* _player;

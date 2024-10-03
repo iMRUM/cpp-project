@@ -3,12 +3,12 @@
 //
 
 #include "GameLogic.h"
-#include "Comand/AbstractCommand.hpp"
-#include "Comand/BuyCommand.hpp"
-#include "Comand/MoveCommand.hpp"
-#include "Comand/RollDiceCommand.hpp"
-#include "Comand/LandOnTradeableCommand.hpp"
-#include "Comand/Pay2PeerCommand.hpp"
+#include "Command/AbstractCommand.hpp"
+#include "Command/BuyCommand.hpp"
+#include "Command/MoveCommand.hpp"
+#include "Command/RollDiceCommand.hpp"
+#include "Command/LandOnTradeableCommand.hpp"
+#include "Command/Pay2PeerCommand.hpp"
 
 void GameLogic::start() { //cg
     while (!isGameOver()) {
