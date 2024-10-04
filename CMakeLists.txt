@@ -26,4 +26,8 @@ add_executable(project
         controller/Command/MoveCommand.cpp
         controller/Command/LandOnTradeableCommand.cpp
         controller/Command/LandOnTradeableCommand.hpp
+        model/GameState.cpp
+        model/GameState.hpp
+        controller/GameController.cpp
+        controller/GameController.hpp
 )

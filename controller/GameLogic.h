@@ -1,7 +1,7 @@
 //
 // Created by imry on 9/24/24.
 //
-
+//Will be deprecated
 #ifndef GAME_H
 #define GAME_H
 #include "../model/Components/Board.h"
@@ -9,9 +9,9 @@
 #include "../model/Components/Player.h"
 #include "../model/Components/Set_class/SetStreet.h"
 #include "../model/Components/Square_class/SpecialSquare.h"
-#include "Comand/BuyCommand.hpp"
-#include "Comand/MoveCommand.hpp"
-#include "Comand/RollDiceCommand.hpp"
+#include "Command/BuyCommand.hpp"
+#include "Command/MoveCommand.hpp"
+#include "Command/RollDiceCommand.hpp"
 //singleton
 using namespace std;
 
