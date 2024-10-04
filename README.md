@@ -87,5 +87,3 @@ After building the project, an executable will be created in the `build` directo
 - Enhance the graphical interface for a more immersive experience.
 
 ---
-
-Feel free to customize the README with your name, date, and any other information specific to your project.
